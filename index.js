@@ -128,12 +128,11 @@ function findById(movies, id) {
     for (let i = 0; i < movies.length; i++) {
       if ((id = movies[i].imdbID)) {
         imdbMovie = movies[i];
-        return imdbMovie;
-      } else {
-        return null;
+        return imdbMovies;
       }
     }
   }
+  return null;
 }
 
 /**
