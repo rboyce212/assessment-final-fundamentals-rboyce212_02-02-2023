@@ -76,7 +76,22 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating() {
+  let moviesRatings = [];
+  let moviesIndex = [];
+  if (movies.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < movies.length; i++) {
+      const eachMovie = movies[i];
+      for (let j = 0; j < eachMovie.ratings.length; j++) {
+        if ((eachMovie.ratings[i].source = "Internet Movie Database")) {
+          moviesRatings.push(eachMovie.ratings[i].value);
+        }
+      }
+    }
+  }
+}
 
 /**
  * countByRating()
@@ -105,7 +120,21 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let imdbMovie = [];
+  if (movies.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < movies.length; i++) {
+      if ((id = movies[i].imdbID)) {
+        imdbMovie = movies[i];
+        return imdbMovie;
+      } else {
+        return null;
+      }
+    }
+  }
+}
 
 /**
  * filterByGenre()
@@ -151,7 +180,21 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let moviesReleasedInfo = [];
+  let moviesIndex = [];
+  if (movies.length === 0) {
+    return moviesIndex;
+  } else {
+    for (let i = 0; i < movies.length; i++) {
+      let movieYear = movies[i].released;
+      if (movieYear.slice(-4) <= year) {
+        moviesReleasedInfo.push(movies[i]);
+      }
+    }
+  }
+  return moviesReleasedInfo;
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -164,7 +207,21 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let highestBoxOffice;
+  let highestBoxOfficeAmounts = [];
+  if (movies.length === 0) {
+    return "null";
+  } else {
+    for (let i = 0; i < movies.length; i++) {
+      let boxOfficeAmount = movies[i].boxOffice;
+      boxOfficeAmount = boxOfficeAmount.replace(/[^0-9]/g, "");
+      console.log(boxOfficeAmount);
+      highestBoxOfficeAmounts.push(boxOfficeAmount);
+    }
+  }
+  // return name of the highest boxoffice amount
+}
 
 // Do not change anything below this line.
 module.exports = {
