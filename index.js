@@ -3,13 +3,14 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
 /**
  * getAllMovieTitles()
  * -----------------------------
- * Returns all of titles from an array of movies. If the inputted `movies` array is empty, return `[]`.
+ * Returns all of titles from an array of movies. If the inputted `movies` array is empty, return `[]`. 
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
  * @returns {string[]} An array of strings, which are movie titles.
  *
@@ -28,7 +29,17 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let moviesIndex = [];
+  if (movies.length === 0) {
+    return moviesIndex;
+  } else {
+    for (let i = 0; i < movies.length; i++) {
+      moviesIndex.push(movies[i].title);
+    }
+  }
+  return moviesIndex;
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +52,12 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore() {
+  let moviesIndex = [];
+  if (movies.length === 0) {
+    return moviesIndex;
+  } else {
+}
 
 /**
  * getAverageIMDBRating()
@@ -153,5 +169,5 @@ module.exports = {
   findById,
   filterByGenre,
   getAllMoviesReleasedAtOrBeforeYear,
-  getBiggestBoxOfficeMovie,
+  getBiggestBoxOfficeMovie
 };
